@@ -1,0 +1,554 @@
+{
+  "generatedAt": "2026-09-26T13:11:12.659Z",
+  "run": null,
+  "summary": {
+    "total": 30,
+    "up": 30,
+    "slow": 0,
+    "down": 0,
+    "label": "30/30 up",
+    "color": "2ea043"
+  },
+  "sites": [
+    {
+      "slug": "klik",
+      "url": "https://joinklik.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 1584,
+      "bytes": 106352,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\" class=\"schibsted_grotesk_a107b3d7-module__LP23iG__variable instrument_sans_3b162698-module__7TvSnG__variable ibm_plex_mono_61108a",
+      "finalUrl": "https://joinklik.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "Swipe left on cover letters"
+      }
+    },
+    {
+      "slug": "klik-app",
+      "url": "https://joinklik.app/app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 181,
+      "bytes": 19574,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\" class=\"schibsted_grotesk_a107b3d7-module__LP23iG__variable instrument_sans_3b162698-module__7TvSnG__variable ibm_plex_mono_61108a",
+      "finalUrl": "https://joinklik.app/app",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "<title>Klik App</title>"
+      }
+    },
+    {
+      "slug": "agentjames",
+      "url": "https://agentjames.vercel.app/",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 596,
+      "bytes": 189255,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_",
+      "finalUrl": "https://agentjames.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "James Lorenz Santos | Agentic Engineer"
+      }
+    },
+    {
+      "slug": "agentjames-404",
+      "url": "https://agentjames.vercel.app/this-page-does-not-exist",
+      "state": "up",
+      "ok": true,
+      "status": 404,
+      "ms": 179,
+      "bytes": 24688,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><!--Quj1poqrw7ix0E1eIk9Gk--><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><li",
+      "finalUrl": "https://agentjames.vercel.app/this-page-does-not-exist",
+      "expect": {
+        "status": 404,
+        "maxMs": 8000,
+        "contains": "That page is not here"
+      }
+    },
+    {
+      "slug": "sluice",
+      "url": "https://sluice-iota.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 184,
+      "bytes": 179963,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\" data-lighting=\"daylight\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link",
+      "finalUrl": "https://sluice-iota.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "exactly-once side effects for agent tool calls"
+      }
+    },
+    {
+      "slug": "windlass",
+      "url": "https://windlass-lyart.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 178,
+      "bytes": 23398,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>windlass: a pipe",
+      "finalUrl": "https://windlass-lyart.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "a pipeline runner with no model inside it"
+      }
+    },
+    {
+      "slug": "kedge",
+      "url": "https://kedge-sage.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 178,
+      "bytes": 21093,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>kedge - a linearizabi",
+      "finalUrl": "https://kedge-sage.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "a linearizability checker you can watch fail"
+      }
+    },
+    {
+      "slug": "flume",
+      "url": "https://flume-lilac.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 177,
+      "bytes": 17894,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>flume - event time, p",
+      "finalUrl": "https://flume-lilac.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "event time, processing time, and the line between them"
+      }
+    },
+    {
+      "slug": "cofferdam",
+      "url": "https://cofferdam.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 172,
+      "bytes": 10767,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>cofferdam - 12,600 cr",
+      "finalUrl": "https://cofferdam.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "12,600 crash points, zero corruptions"
+      }
+    },
+    {
+      "slug": "proofpage",
+      "url": "https://proofpage-green.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 177,
+      "bytes": 35723,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"/> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/> <title>proofpage — a recei",
+      "finalUrl": "https://proofpage-green.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "a receipts page that refuses to print a number it did not measure"
+      }
+    },
+    {
+      "slug": "chaff",
+      "url": "https://chaff-xi.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 178,
+      "bytes": 75649,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" as=\"image\"",
+      "finalUrl": "https://chaff-xi.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "deterministic static analysis for agent context files"
+      }
+    },
+    {
+      "slug": "dipmeter",
+      "url": "https://dipmeter.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 182,
+      "bytes": 254069,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\" data-theme=\"dusk\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewpor",
+      "finalUrl": "https://dipmeter.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "the shape of a subducting slab"
+      }
+    },
+    {
+      "slug": "orrery",
+      "url": "https://orrery-tan.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 179,
+      "bytes": 124107,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\" data-stage=\"dusk\"> <head> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scal",
+      "finalUrl": "https://orrery-tan.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "every catalogued small body, solved every frame"
+      }
+    },
+    {
+      "slug": "snapgauge",
+      "url": "https://snapgauge.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 205,
+      "bytes": 75290,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/bran",
+      "finalUrl": "https://snapgauge.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "contract tests for MCP servers"
+      }
+    },
+    {
+      "slug": "provenote",
+      "url": "https://provenote.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 176,
+      "bytes": 24417,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_",
+      "finalUrl": "https://provenote.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "a C2PA honesty test"
+      }
+    },
+    {
+      "slug": "dogwatch",
+      "url": "https://dogwatch-two.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 179,
+      "bytes": 188160,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/font",
+      "finalUrl": "https://dogwatch-two.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "<title>dogwatch</title>"
+      }
+    },
+    {
+      "slug": "tiltmeter",
+      "url": "https://tiltmeter.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 182,
+      "bytes": 151625,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" as=\"image\"",
+      "finalUrl": "https://tiltmeter.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "The detector fires when your harness moves"
+      }
+    },
+    {
+      "slug": "shipgauge",
+      "url": "https://shipgauge.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 198,
+      "bytes": 22067,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>shipgauge — what a br",
+      "finalUrl": "https://shipgauge.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "what a browser-ML model actually costs to ship"
+      }
+    },
+    {
+      "slug": "assay",
+      "url": "https://assay-flax.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 200,
+      "bytes": 20359,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>assay: brand kits as",
+      "finalUrl": "https://assay-flax.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "brand kits as pure functions"
+      }
+    },
+    {
+      "slug": "galley",
+      "url": "https://galley-khaki.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 207,
+      "bytes": 13223,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <title>galley: release video",
+      "finalUrl": "https://galley-khaki.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "release videos rendered from your pipeline"
+      }
+    },
+    {
+      "slug": "halo-halo",
+      "url": "https://halo-halo-coral.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 211,
+      "bytes": 36751,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\" class=\"overflow-x-hidden\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link",
+      "finalUrl": "https://halo-halo-coral.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "Taglish code-switching segmenter"
+      }
+    },
+    {
+      "slug": "swage",
+      "url": "https://swage-swart.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 255,
+      "bytes": 50075,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" as=\"image\"",
+      "finalUrl": "https://swage-swart.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "ASL fingerspelling handshape practice"
+      }
+    },
+    {
+      "slug": "graticule",
+      "url": "https://graticule-seven.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 507,
+      "bytes": 23024,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_",
+      "finalUrl": "https://graticule-seven.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "map your own notes, on-device"
+      }
+    },
+    {
+      "slug": "clarifier",
+      "url": "https://clarifier.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 234,
+      "bytes": 33669,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><html lang=\"en\" class=\"overflow-x-hidden\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link",
+      "finalUrl": "https://clarifier.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "physics-driven data visualization"
+      }
+    },
+    {
+      "slug": "pitman",
+      "url": "https://pitman-eight.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 473,
+      "bytes": 3301,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <!-- favic",
+      "finalUrl": "https://pitman-eight.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "see exactly what the model heard"
+      }
+    },
+    {
+      "slug": "orphanage",
+      "url": "https://orphanage-ten.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 224,
+      "bytes": 43126,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"/> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/> <title>orphanage — where y",
+      "finalUrl": "https://orphanage-ten.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "where your crawl graph and your sitemap disagree"
+      }
+    },
+    {
+      "slug": "aeo-lab",
+      "url": "https://aeo-lab-iota.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 488,
+      "bytes": 37751,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"/> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/> <title>aeo-lab — whic",
+      "finalUrl": "https://aeo-lab-iota.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "which AI crawlers your site actually serves"
+      }
+    },
+    {
+      "slug": "polis",
+      "url": "https://polis-sigma.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 219,
+      "bytes": 127893,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"> <title>P",
+      "finalUrl": "https://polis-sigma.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "<title>Polis</title>"
+      }
+    },
+    {
+      "slug": "carillon",
+      "url": "https://carillon-psi.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 225,
+      "bytes": 39188,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <title>carillon — keystroke rhythm sonifier</title> <link rel=\"canonical\" href=\"https://cari",
+      "finalUrl": "https://carillon-psi.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "keystroke rhythm sonifier"
+      }
+    },
+    {
+      "slug": "clubscope",
+      "url": "https://clubscope-insight-engine.vercel.app",
+      "state": "up",
+      "ok": true,
+      "status": 200,
+      "ms": 235,
+      "bytes": 98508,
+      "attempts": 1,
+      "reason": "",
+      "firstBytes": "<!DOCTYPE html><!--4geOMhzcU5BKE_hDe39Mf--><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><li",
+      "finalUrl": "https://clubscope-insight-engine.vercel.app/",
+      "expect": {
+        "status": 200,
+        "maxMs": 8000,
+        "contains": "ClubScope Insight Engine"
+      }
+    }
+  ]
+}

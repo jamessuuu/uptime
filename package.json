@@ -1,0 +1,11 @@
+{
+  "name": "uptime",
+  "private": true,
+  "type": "module",
+  "description": "External uptime probe for every live site. Zero dependencies.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "probe": "node probe.mjs",
+    "probe:fast": "node probe.mjs --fast"
+  }
+}

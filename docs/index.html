@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uptime</title>
+<meta name="description" content="External uptime probe for every live site. Every 15 minutes from GitHub Actions; every result committed.">
+<meta name="color-scheme" content="dark light">
+<style>
+  :root {
+    --bg: #0f1115; --panel: #171a21; --line: #262b36; --ink: #e6e8ee; --mute: #8a93a6;
+    --up: #2ea043; --slow: #d29922; --down: #e5484d; --none: #2a2f3a;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #f6f7f9; --panel: #ffffff; --line: #dfe3ea; --ink: #14171f; --mute: #5c667a; --none: #e3e6ec; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  main { max-width: 1040px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 20px; margin: 0 0 4px; font-weight: 600; }
+  .sub { color: var(--mute); margin: 0 0 24px; }
+  .sub a { color: inherit; }
+  .banner { padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 20px; background: var(--panel); display: flex; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+  .banner .big { font-size: 18px; font-weight: 600; }
+  .banner.down { border-color: var(--down); }
+  .banner.slow { border-color: var(--slow); }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-top: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }
+  th { color: var(--mute); font-weight: 500; border-top: 0; font-size: 12px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+  a:hover { border-bottom-color: var(--ink); }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+  .dot.up { background: var(--up); } .dot.slow { background: var(--slow); } .dot.down { background: var(--down); }
+  .bars { display: flex; gap: 2px; height: 22px; width: 100%; min-width: 210px; }
+  .bars span { flex: 1 1 0; background: var(--none); border-radius: 2px; }
+  .bars span[data-u] { background: var(--up); }
+  .bars span.slow { background: var(--slow); }
+  .bars span.part { background: var(--down); }
+  .bars span.zero { background: var(--down); opacity: .6; }
+  td.barcell { width: 40%; }
+  .note { color: var(--mute); font-size: 12px; margin-top: 12px; }
+  .legend { display: flex; gap: 14px; color: var(--mute); font-size: 12px; margin-top: 10px; flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  #err { color: var(--down); }
+  @media (max-width: 720px) {
+    th.opt, td.opt { display: none; }
+    td.barcell { width: 45%; }
+    main { padding-top: 20px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Uptime</h1>
+  <p class="sub">Every 15 minutes from GitHub Actions, one fetch per site, one retry 30 s later before anything is called down. Every recorded run is committed to <a href="https://github.com/jamessuuu/uptime">jamessuuu/uptime</a>; incidents are <a href="https://github.com/jamessuuu/uptime/issues?q=label%3Auptime">issues</a>.</p>
+  <div id="banner" class="banner"><span class="big">Loading state/latest.json</span></div>
+  <div id="err"></div>
+  <table id="t" hidden>
+    <thead><tr><th>Site</th><th class="opt">Status</th><th class="num">ms</th><th>Last 30 days</th><th class="num opt">Uptime</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="legend">
+    <span><i style="background:var(--up)"></i>up all day</span>
+    <span><i style="background:var(--slow)"></i>up, some of it slow</span>
+    <span><i style="background:var(--down)"></i>down for part of the day</span>
+    <span><i style="background:var(--none)"></i>no record</span>
+  </div>
+  <p class="note" id="note"></p>
+</main>
+<script>
+(async () => {
+  const local = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  const base = local ? "../state/" : "https://raw.githubusercontent.com/jamessuuu/uptime/main/state/";
+  const bust = "?t=" + Math.floor(Date.now() / 60000);
+  const DAY = 86400000, DAYS = 30;
+  const banner = document.getElementById("banner");
+  const tbody = document.querySelector("#t tbody");
+  const fmtAgo = (d) => { const m = Math.round((Date.now() - d) / 60000); return m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " d ago"; };
+
+  let latest, lines;
+  try {
+    const [a, b] = await Promise.all([fetch(base + "latest.json" + bust), fetch(base + "history.ndjson" + bust)]);
+    if (!a.ok) throw new Error("latest.json " + a.status);
+    latest = await a.json();
+    lines = b.ok ? (await b.text()).split("\n").filter(Boolean).map((l) => JSON.parse(l)).sort((x, y) => x.t.localeCompare(y.t)) : [];
+  } catch (e) {
+    banner.innerHTML = '<span class="big">Could not load state</span>';
+    document.getElementById("err").textContent = String(e);
+    return;
+  }
+
+  const s = latest.summary || {};
+  const gen = new Date(latest.generatedAt);
+  banner.className = "banner " + (s.down ? "down" : s.slow ? "slow" : "");
+  banner.innerHTML =
+    '<span class="big">' + (s.label || "") + "</span>" +
+    (s.down ? "<span>" + s.down + " down</span>" : "") +
+    (s.slow ? "<span>" + s.slow + " slow</span>" : "") +
+    "<span>last recorded " + gen.toISOString().replace("T", " ").slice(0, 16) + " UTC (" + fmtAgo(gen) + ")</span>" +
+    (latest.run ? '<span><a href="' + latest.run + '">run</a></span>' : "");
+
+  // Per-site step function of states from the recorded runs. A run is recorded only when
+  // something changed or every 6 h, so the state between two records is the earlier one.
+  const now = Date.now();
+  const windowStart = now - DAYS * DAY;
+  function dayBuckets(slug) {
+    const ev = lines.filter((l) => l.r && l.r[slug]).map((l) => ({ t: new Date(l.t).getTime(), s: l.r[slug][0] }));
+    if (!ev.length) return { days: Array(DAYS).fill(null), uptime: null };
+    const days = [];
+    let upTotal = 0, covered = 0;
+    for (let d = DAYS - 1; d >= 0; d--) {
+      const a = Math.max(now - (d + 1) * DAY, ev[0].t), b = now - d * DAY;
+      if (b <= a) { days.push(null); continue; }
+      let up = 0, slow = 0, down = 0, t = a;
+      let i = ev.findIndex((e) => e.t > a); i = i < 0 ? ev.length : i;
+      let cur = ev[Math.max(0, i - 1)].s;
+      for (; i < ev.length && ev[i].t < b; i++) { const span = ev[i].t - t; if (cur === "up") up += span; else if (cur === "slow") slow += span; else down += span; cur = ev[i].s; t = ev[i].t; }
+      const span = b - t; if (cur === "up") up += span; else if (cur === "slow") slow += span; else down += span;
+      const total = up + slow + down;
+      days.push({ up: (up + slow) / total, slow: slow / total, down: down / total, total });
+      upTotal += up + slow; covered += total;
+    }
+    return { days, uptime: covered ? (upTotal / covered) * 100 : null };
+  }
+
+  for (const site of latest.sites) {
+    const { days, uptime } = dayBuckets(site.slug);
+    const tr = document.createElement("tr");
+    const bars = days.map((d) => {
+      if (!d) return '<span title="no record"></span>';
+      const cls = d.down > 0 ? (d.up === 0 ? "zero" : "part") : d.slow > 0 ? "slow" : "";
+      const title = (d.up * 100).toFixed(2) + "% up";
+      return "<span" + (d.down > 0 || d.slow > 0 ? ' class="' + cls + '"' : ' data-u="1"') + ' title="' + title + '"></span>';
+    }).join("");
+    tr.innerHTML =
+      '<td><span class="dot ' + site.state + '"></span><a href="' + site.url + '">' + site.slug + "</a></td>" +
+      '<td class="opt">' + (site.status ?? "-") + (site.reason ? ' <span style="color:var(--mute)">' + site.reason.replace(/</g, "&lt;") + "</span>" : "") + "</td>" +
+      '<td class="num">' + site.ms + "</td>" +
+      '<td class="barcell"><div class="bars">' + bars + "</div></td>" +
+      '<td class="num opt">' + (uptime === null ? "-" : uptime.toFixed(2) + "%") + "</td>";
+    tbody.appendChild(tr);
+  }
+  document.getElementById("t").hidden = false;
+  document.getElementById("note").textContent =
+    lines.length + " recorded runs in the window. Bars are one day each, computed from the recorded state changes; a day is red if the site was down for any of it. Times are UTC.";
+})();
+</script>
+</body>
+</html>
