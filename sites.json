@@ -39,6 +39,7 @@
     { "slug": "aeo-lab",        "url": "https://aeo-lab-iota.vercel.app",                         "expect": { "contains": "which AI crawlers your site actually serves" } },
     { "slug": "polis",          "url": "https://polis-sigma.vercel.app",                          "expect": { "contains": "<title>Polis</title>" } },
     { "slug": "carillon",       "url": "https://carillon-psi.vercel.app",                         "expect": { "contains": "keystroke rhythm sonifier" } },
-    { "slug": "clubscope",      "url": "https://clubscope-insight-engine.vercel.app",             "expect": { "contains": "ClubScope Insight Engine" } }
+    { "slug": "clubscope",      "url": "https://clubscope-insight-engine.vercel.app",             "expect": { "contains": "ClubScope Insight Engine" } },
+    { "slug": "plant-404",      "url": "https://agentjames.vercel.app/uptime-plant-this-404s",    "expect": { "contains": "this string is never on a 404 page" } }
   ]
 }
