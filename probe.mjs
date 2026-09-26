@@ -212,6 +212,7 @@ if (env.GITHUB_STEP_SUMMARY) {
 // ---------------------------------------------------------------- issues (one per down site)
 
 const token = env.GITHUB_TOKEN;
+const LABEL = "uptime";
 if (!token) {
   log("no GITHUB_TOKEN: skipping issue handling");
 } else {
@@ -233,8 +234,6 @@ async function gh(method, url, body) {
   if (!res.ok) throw new Error(`${method} ${url} -> ${res.status} ${await res.text()}`);
   return res.status === 204 ? null : res.json();
 }
-
-const LABEL = "uptime";
 
 async function ensureLabel() {
   try {
