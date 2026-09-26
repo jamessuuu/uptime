@@ -6,6 +6,7 @@
 <title>Uptime</title>
 <meta name="description" content="External uptime probe for every live site. Every 15 minutes from GitHub Actions; every result committed.">
 <meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%232ea043'/%3E%3C/svg%3E">
 <style>
   :root {
     --bg: #0f1115; --panel: #171a21; --line: #262b36; --ink: #e6e8ee; --mute: #8a93a6;
@@ -45,9 +46,13 @@
   #err { color: var(--down); }
   @media (max-width: 720px) {
     th.opt, td.opt { display: none; }
-    td.barcell { width: 45%; }
+    th, td { padding: 8px 6px; }
+    td.barcell { width: 40%; }
+    .bars { min-width: 110px; }
+    .dot { margin-right: 6px; }
     main { padding-top: 20px; }
   }
+  .tablewrap { overflow-x: auto; }
 </style>
 </head>
 <body>
@@ -56,10 +61,12 @@
   <p class="sub">Every 15 minutes from GitHub Actions, one fetch per site, one retry 30 s later before anything is called down. Every recorded run is committed to <a href="https://github.com/jamessuuu/uptime">jamessuuu/uptime</a>; incidents are <a href="https://github.com/jamessuuu/uptime/issues?q=label%3Auptime">issues</a>.</p>
   <div id="banner" class="banner"><span class="big">Loading state/latest.json</span></div>
   <div id="err"></div>
+  <div class="tablewrap">
   <table id="t" hidden>
     <thead><tr><th>Site</th><th class="opt">Status</th><th class="num">ms</th><th>Last 30 days</th><th class="num opt">Uptime</th></tr></thead>
     <tbody></tbody>
   </table>
+  </div>
   <div class="legend">
     <span><i style="background:var(--up)"></i>up all day</span>
     <span><i style="background:var(--slow)"></i>up, some of it slow</span>
